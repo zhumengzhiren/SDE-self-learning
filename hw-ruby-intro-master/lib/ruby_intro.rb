@@ -31,15 +31,24 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  "Hello, #{name}"
 end
 
 def starts_with_consonant?(s)
   # YOUR CODE HERE
+  # 检查字符串是否为空
+  return false if s.nil? || s.empty?
+
+  # 获取字符串的第一个字符
+  first_char = s[0]
+
+  # 检查第一个字符是否为辅音字母
+  !!(first_char =~ /^[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]$/)
 end
 
 def binary_multiple_of_4?(s)
-  # YOUR CODE HERE
+  return false if s.nil? || s.empty? || s.match?(/[^01]/)
+  s.to_i(2) % 4 == 0
 end
 
 # Part 3
