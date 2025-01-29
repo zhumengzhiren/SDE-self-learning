@@ -1,21 +1,21 @@
 Ruby Intro
-=============
+==========
 
 This 3-part homework gives some basic practice in Ruby as well as
 getting you accustomed to making testing a regular part of your workflow.
 
 **NOTE: If you are working on a local computer, do not clone this repo to your workspace. Fork it first, then clone your fork.**
 
-
 Learning Goals
 --------------
+
 After completing this assignment, you will know how to:
 
 * Write simple code that uses basic constructs in the Ruby language, including methods and arguments, conditionals, string and array manipulation, regular expressions, and basic object-oriented programming mechanisms
 * Understand the Ruby project conventions for where code files and test files are located in a project's directory hierarchy
 * Run individual tests or suites of tests using the RSpec unit testing tool
 * Understand the basic syntax of RSpec unit tests
- 
+
 Overview
 --------
 
@@ -32,28 +32,29 @@ can submit this single file to the autograder.**
 
 However, you can test each of the 3 parts separately.  The files
 `spec/part[123]_spec.rb` contain RSpec tests for each of the three
-parts.  For example, to test your answers to Part 1, say `rspec
-spec/part1_spec.rb`.  `rspec` with no arguments runs the tests in all
+parts.  For example, to test your answers to Part 1, say `rspec spec/part1_spec.rb`.  `rspec` with no arguments runs the tests in all
 the files `spec/*_spec.rb`.
 
 * The line numbers in the RSpec error report will
-give you guidance as to which tests failed.  (You can check the [RSpec
-documentation](http://rspec.info) to see how the `.rspec` file can be
-used to customize the output format.)
+  give you guidance as to which tests failed.  (You can check the [RSpec
+  documentation](http://rspec.info) to see how the `.rspec` file can be
+  used to customize the output format.)
 
 If you are working in Codio, you are ready to move on to the next part. If you are working on a local computer, proceed with the following steps.
 
-| Local computer setup |
-|-----|
-Ensure that Ruby 2.6.6 is installed.
+| Local computer setup                 |
+| ------------------------------------ |
+| Ensure that Ruby 2.6.6 is installed. |
 
-To ensure you have the rspec gem installed you need bundler and can then 
+To ensure you have the rspec gem installed you need bundler and can then
 run bundle install like so:
+
 ```sh
-$ gem install bundler
+$ sudo gem install bundler -v 2.4.22
 $ cd assignment
 $ bundle
 ```
+
 When the above completes successfully you'll have RSpec installed and can
 run `rspec` from the command line to test your code.
 
@@ -61,32 +62,25 @@ run `rspec` from the command line to test your code.
 
 Check the [Ruby 2.x documentation](http://ruby-doc.org) on `Array`,
 `Hash` and `Enumerable` as they could help tremendously with these
-exercises. Various Ruby cheatsheets are also helpful as a quick reference! Although Ruby supports looping constructs like 'for' and 'while', consider using block syntax with each for a more idiomatic use of Ruby. :-) 
+exercises. Various Ruby cheatsheets are also helpful as a quick reference! Although Ruby supports looping constructs like 'for' and 'while', consider using block syntax with each for a more idiomatic use of Ruby. :-)
 
 0. Define a method `sum(array)` that takes an array of integers as an argument and returns the sum of its elements. For an empty array it should return zero.  Run associated tests via:  `$ rspec -e '#sum ' spec/part1_spec.rb` (Make sure you are in the correct directory: `cd assignment` and rspec is installed)
-
-0. Define a method `max_2_sum(array)` which takes an array of integers as an argument and returns the sum of its two largest elements. For an empty array it should return zero. For an array with just one element, it should return that element (Consider if the two largest elements are the same value as well). Run associated tests via:  `$ rspec -e '#max_2_sum' spec/part1_spec.rb`
-
-0. Define a method `sum_to_n?(array, n)` that takes an array of integers and an additional integer, n, as arguments and returns true if any two elements in the array of integers sum to n. `sum_to_n?([], n)` should return false for any value of n, by definition. Run associated tests via:  `$ rspec -e '#sum_to_n' spec/part1_spec.rb` 
+1. Define a method `max_2_sum(array)` which takes an array of integers as an argument and returns the sum of its two largest elements. For an empty array it should return zero. For an array with just one element, it should return that element (Consider if the two largest elements are the same value as well). Run associated tests via:  `$ rspec -e '#max_2_sum' spec/part1_spec.rb`
+2. Define a method `sum_to_n?(array, n)` that takes an array of integers and an additional integer, n, as arguments and returns true if any two elements in the array of integers sum to n. `sum_to_n?([], n)` should return false for any value of n, by definition. Run associated tests via:  `$ rspec -e '#sum_to_n' spec/part1_spec.rb`
 
 You can check your progress on all of the above by running `$ rspec spec/part1_spec.rb`.
-
 
 # 2. Strings and Regular Expressions
 
 Check the documentation on String and Regexp as they could help tremendously with these exercises. For future reference as well, check out https://rubular.com/ for regex related queries. :-)
 
 0. Define a method `hello(name)` that takes a string representing a name and returns the string "Hello, " concatenated with the name. Run associated tests via:  `$ rspec -e '#hello' spec/part2_spec.rb` (Make sure you are in the correct directory: `cd assignment`)
-
-0. Define a method `starts_with_consonant?(s)` that takes a string and returns true if it starts with a consonant and false otherwise. (For our purposes, a consonant is any English letter other than A, E, I, O, U.) Make sure it works for both upper and lower case and for non-letters. Run associated tests via:  `$ rspec -e '#starts_with_consonant?' spec/part2_spec.rb`
-
-0. Define a method `binary_multiple_of_4?(s)` that takes a string and returns true if the string represents a binary number that is a multiple of 4, such as '1000'. Make sure it returns false if the string is not a valid binary number. Run associated tests via:  `$ rspec -e '#binary_multiple_of_4?' spec/part2_spec.rb`
+1. Define a method `starts_with_consonant?(s)` that takes a string and returns true if it starts with a consonant and false otherwise. (For our purposes, a consonant is any English letter other than A, E, I, O, U.) Make sure it works for both upper and lower case and for non-letters. Run associated tests via:  `$ rspec -e '#starts_with_consonant?' spec/part2_spec.rb`
+2. Define a method `binary_multiple_of_4?(s)` that takes a string and returns true if the string represents a binary number that is a multiple of 4, such as '1000'. Make sure it returns false if the string is not a valid binary number. Run associated tests via:  `$ rspec -e '#binary_multiple_of_4?' spec/part2_spec.rb`
 
 You can check your progress on all of the above by running `$ rspec spec/part2_spec.rb`.
 
-
 # 3. Object Oriented Basics
-
 
 Define a class `BookInStock` which represents a book with an ISBN number, `isbn`, and price of the book as a floating-point number, `price`, as attributes. Run associated tests via:  `$ rspec -e 'getters and setters' spec/part3_spec.rb` (Make sure you are in the correct directory: `cd assignment`)
 
@@ -96,16 +90,14 @@ Include a method `price_as_string` that returns the price of the book formatted 
 
 You can check your progress on all of the above by running `rspec spec/part3_spec.rb`.
 
-
 ## More Challenges
 
-* Try getting setup with 
-an automated test framework such as [guard](http://code.tutsplus.com/tutorials/testing-your-ruby-code-with-guard-rspec-pry--cms-19974) or [autotest](https://rubygems.org/gems/autotest).  Guard or AutoTest can be set up so that 
-they will run all the tests in `spec/`, but every time you edit and save 
-your code file, the tests are automatically re-run, so you don't have to 
-run them manually.  As we'll see later, this is the "watch the test fail" 
-part of the TDD or test-driven process of development: write the tests before
-you write the code, watch the test fail, fill in the code and save the code file, 
-then watch the test pass!
-
+* Try getting setup with
+  an automated test framework such as [guard](http://code.tutsplus.com/tutorials/testing-your-ruby-code-with-guard-rspec-pry--cms-19974) or [autotest](https://rubygems.org/gems/autotest).  Guard or AutoTest can be set up so that
+  they will run all the tests in `spec/`, but every time you edit and save
+  your code file, the tests are automatically re-run, so you don't have to
+  run them manually.  As we'll see later, this is the "watch the test fail"
+  part of the TDD or test-driven process of development: write the tests before
+  you write the code, watch the test fail, fill in the code and save the code file,
+  then watch the test pass!
 * Try pairing using the [one-undermanship pair programming style](http://www.agileventures.org/remote-pair-programming/pair-programming-protocols)
