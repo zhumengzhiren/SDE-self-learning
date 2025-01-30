@@ -17,7 +17,7 @@ class WordGuesserApp < Sinatra::Base
   # These two routes are good examples of Sinatra syntax
   # to help you with the rest of the assignment
   get '/' do
-    redirect '/new'
+    redirect '/new' 
   end
 
   get '/new' do
@@ -37,8 +37,13 @@ class WordGuesserApp < Sinatra::Base
   # If a guess is repeated, set flash[:message] to "You have already used that letter."
   # If a guess is invalid, set flash[:message] to "Invalid guess."
   post '/guess' do
-    params[:guess].to_s[0]
-    ### YOUR CODE HERE ###
+    letter = params[:guess].to_s[0]
+    ret = @game.guess(letter)
+    rescue ArgumentError 
+      flash[:message] = "Invalid guess."
+    if ret == false
+      flash[:message] = "You have already used that letter."    
+    end
     redirect '/show'
   end
 
@@ -49,7 +54,14 @@ class WordGuesserApp < Sinatra::Base
   # wrong_guesses and word_with_guesses from @game.
   get '/show' do
     ### YOUR CODE HERE ###
-    erb :show # You may change/remove this line
+    state = @game.check_win_or_lose() 
+    if state == :win
+      redirect '/win'
+    elsif state == :lose
+      redirect '/lose'
+    else
+      erb :show
+    end 
   end
 
   get '/win' do

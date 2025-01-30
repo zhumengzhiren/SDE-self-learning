@@ -12,6 +12,11 @@ require 'rspec'
 require 'rack_session_access'
 require 'byebug'
 
+Before do
+  puts "Capybara driver: #{Capybara.current_driver}"
+  puts "Cookies middleware: #{Rails.application.config.middleware.map(&:inspect).grep(/Cookie/)}"
+end
+
 Capybara.app = WordGuesserApp
 Capybara.app.configure do |app|
   app.use RackSessionAccess::Middleware

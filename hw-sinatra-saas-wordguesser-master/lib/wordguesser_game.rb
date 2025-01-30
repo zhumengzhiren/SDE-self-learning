@@ -12,7 +12,7 @@ class WordGuesserGame
   end
 
   def guess(letter)
-    raise ArgumentError, 'Guess must be a single letter' unless valid_guess?(letter)
+    raise ArgumentError unless valid_guess?(letter)
     letter = letter.downcase 
     # Check if the letter is in the word
 
@@ -60,7 +60,7 @@ class WordGuesserGame
       :play
     end
   end
-  
+
   # You can test it by installing irb via $ gem install irb
   # and then running $ irb -I. -r app.rb
   # And then in the irb: irb(main):001:0> WordGuesserGame.get_random_word
