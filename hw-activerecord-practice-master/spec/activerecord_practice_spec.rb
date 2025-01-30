@@ -100,7 +100,7 @@ describe 'ActiveRecord practice' do
 
     specify 'database by deleting all customers born on or before 31 Dec 1977' do
       Customer.delete_everyone_born_before_1978
-      expect(Customer.where('birthdate < ?', Time.zone.parse("1 January 1978"))).to be_empty
+      expect(Customer.where('birthdate < ?', Date.new(1977, 12, 31))).to be_empty
     end
   end
 end

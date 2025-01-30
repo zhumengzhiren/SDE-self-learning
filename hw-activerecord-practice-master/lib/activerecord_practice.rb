@@ -75,7 +75,7 @@ class Customer < ApplicationRecord
   end
 
   def self.delete_everyone_born_before_1978
-    Customer.where('birthdate < ?', Date.new(1978, 1, 1)).destroy_all
+    Customer.where('birthdate <= ?', Date.new(1977, 12, 31)).destroy_all
   end
 end
 
